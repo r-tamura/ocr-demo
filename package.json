@@ -9,7 +9,7 @@
     "build:js:production": "cross-env NODE_ENV=production webpack",
     "build:css": "postcss -c .postcssrc.json",
     "watch:js": "webpack -w",
-    "watch:css": "postcss -w -c .postcssrc.json",
+    "watch:css": "postcss --watch --config .postcssrc.json --map",
     "watch:server": "http-server public -p 8080 -c-1",
     "typecheck": "flow",
     "lint": "eslint src test",
@@ -64,6 +64,7 @@
   "devDependencies": {
     "cross-env": "^3.1.4",
     "eslint-config-airbnb": "^14.0.0",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
     "webpack": "beta"
   }
 }

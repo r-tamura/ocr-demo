@@ -1,0 +1,14 @@
+:root {
+
+  /* ヘッダ要素のアイテムスタイル */
+  --head-item: {
+    display: flex;
+    align-items: center;
+  };
+
+  /* 左右のパディング */
+  --padding-horizon: {
+    padding-left: var(--padding-horizon-medium);
+    padding-right: var(--padding-horizon-medium);
+  };
+}

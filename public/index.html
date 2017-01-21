@@ -5,8 +5,29 @@
   <title>OCR Sample</title>
 </head>
 <body>
-  <h1>Hello, OCR!!</h1>
-  <div class="main"></div>
+  <!--
+    画像ファイルの縮小機能サンプル
+    1. "Drop files hear"にファイルをドラッグアンドドロップ(複数可)
+    2. 縮小されたファイルがダウンロードされる
+  -->
+  <div class="container">
+    <main class="main">
+      <section class="panel">
+        <div class="panel__heading panel__heading--inverse">
+          <div class="panel__heading__item">
+            <span>Drop zone</span>
+          </div>
+        </div>
+        <div class="panel__body">
+          <div id="dropzone">
+            <span class="dropzone__text">Drop files or directory here</span>
+          </div>
+        </div>
+      </section>
+      <!-- <input type="file" capture> -->
+    </main>
+  </div>
+
   <script src="bundle.js"></script>
   <link rel="stylesheet" href="bundle.css">
 </body>

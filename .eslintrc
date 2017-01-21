@@ -23,9 +23,7 @@
     "import/prefer-default-export": 0,
     "import/no-named-as-default": 0,
     "no-unused-vars": [1, {"vars": "local", "args": "none"}],
-    "no-prototype-builtins": 0
-  },
-  "plugins": [
-    "react"
-  ]
+    "no-prototype-builtins": 0,
+    "arrow-parens": 0
+  }
 }

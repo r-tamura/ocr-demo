@@ -1,7 +1,41 @@
-body {
-  background-color: #eee;
+
+
+/* Global variables */
+@import 'variables';
+@import 'mixins';
+
+/* Component Styles */
+@import 'panel';
+
+*, *:before, *:after {
+  box-sizing: border-box;
 }
 
-h1 {
-  color: #aaa;
+.container {
+  position: relative;
+}
+
+.main {
+  max-width: 768px;
+  padding: 20px 10px;
+  margin: 0 auto;
+}
+
+#dropzone {
+  height: 300px;
+  border: 3px dotted var(--color-dropzone-border);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropzone__text {
+  font-size: 1.25rem;
+  color: #BDBDBD;
+}
+
+.dropzone--active {
+  border-width: 5px;
+  background-color: var(--color-dropzone-bg-active);
 }

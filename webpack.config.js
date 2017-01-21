@@ -1,7 +1,8 @@
 /* flow */
 const AsyncAwaitPlugin = require("webpack-async-await") ;
 
-module.exports = {
+const config = {
+  devtool: '#inline-source-map',
   entry: "./src/main.js",
   output: {
     path: "public",
@@ -20,3 +21,5 @@ module.exports = {
     ]
   }
 };
+
+module.exports = config;

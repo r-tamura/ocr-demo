@@ -1,0 +1,27 @@
+.panel {
+  border-radius: 2px;
+  background: var(--color-panel-bg);
+  margin-bottom: var(--margin-large);
+  box-shadow: var(--shadow);
+}
+
+.panel__heading {
+  @apply --padding-horizon;
+  display: flex;
+  justify-content: space-between;
+  height: var(--header-height);
+}
+
+.panel__heading--inverse {
+  color: var(--color-panel-inverse);
+  background-color: var(--color-panel-bg-inverse);
+}
+
+.panel__heading__item {
+  @apply --head-item;
+  font-size: var(--font-large);
+}
+
+.panel__body {
+  padding: 15px;
+}

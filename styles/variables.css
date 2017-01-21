@@ -1,0 +1,32 @@
+:root {
+  /* Font size */
+  --font-very-small:  0.50rem;
+  --font-small:       0.75rem;
+  --font-medium:      1.00rem;
+  --font-large:       1.35rem;
+  --font-very-large:  2.00rem;
+
+  /* Main colors */
+  --color-dropzone-border: gray;
+  --color-dropzone-bg-active: #EEFFDE;
+  --color-dropzone-text-active: #DDDDDD;
+  --color-panel-bg: #FEFEFE;
+  --color-panel-inverse: #FEFEFE;
+  --color-panel-bg-inverse: #153F3F;
+
+  --margin-small: 5px;
+  --margin-medium: 10px;
+  --margin-large: 20px;
+
+  --padding-horizon-small: 10px;
+  --padding-horizon-medium: 20px;
+  --padding-horizon-large: 35px;
+
+  --header-height: 50px;
+
+  --shadow: 0px 1px 6px rgba(0, 0, 0, 0.12), 0px 1px 4px rgba(0, 0, 0, 0.12);
+
+  background-color: #F5F5F5;
+  font-family: 'ヒラギノ角ゴ Pro W3', 'Roboto', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo', 'ＭＳ Ｐゴシック', sans-serif;
+}
+
