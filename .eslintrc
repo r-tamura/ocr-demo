@@ -1,0 +1,31 @@
+{
+  "ecmaFeatures": {
+    "jsx": true,
+    "modules": true
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "rules": {
+    "quotes": [2, "single"],
+    "strict": [2, "never"],
+    "indent": [2, 2],
+    "semi": [2, "never"],
+    "no-undef": 0,
+    "no-param-reassign": 0,
+    "import/no-unresolved": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/extensions": 0,
+    "import/no-mutable-exports": 0,
+    "import/prefer-default-export": 0,
+    "import/no-named-as-default": 0,
+    "no-unused-vars": [1, {"vars": "local", "args": "none"}],
+    "no-prototype-builtins": 0
+  },
+  "plugins": [
+    "react"
+  ]
+}
