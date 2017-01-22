@@ -2,14 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>OCR Sample</title>
+  <link rel="icon" href="favicon.ico">
+  <title>OCR Demo</title>
 </head>
 <body>
-  <!--
-    画像ファイルの縮小機能サンプル
-    1. "Drop files hear"にファイルをドラッグアンドドロップ(複数可)
-    2. 縮小されたファイルがダウンロードされる
-  -->
   <div class="container">
     <main class="main">
       <section class="panel">
@@ -19,15 +15,27 @@
           </div>
         </div>
         <div class="panel__body">
-          <div id="dropzone">
+          <div id="dropzone" data-link="hidden-file">
             <span class="dropzone__text">Drop files or directory here</span>
+            <input id="hidden-file" type="file" class="dropzone__hidden-file" multiple>
           </div>
         </div>
       </section>
       <!-- <input type="file" capture> -->
+      <section class="panel">
+        <div class="panel__heading panel__heading--inverse">
+          <div class="panel__heading__item">
+            <span>Result</span>
+          </div>
+        </div>
+        <div class="panel__body">
+          <div id="result-list">
+            <ul class="list"></ul>
+          </div>
+        </div>
+      </section>
     </main>
   </div>
-
   <script src="bundle.js"></script>
   <link rel="stylesheet" href="bundle.css">
 </body>
