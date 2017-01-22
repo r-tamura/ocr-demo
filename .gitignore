@@ -54,6 +54,7 @@ build/Release
 node_modules
 public/bundle.js
 public/bundle.css
+favicon.ico
 .nyc_output
 
 # Editor settings

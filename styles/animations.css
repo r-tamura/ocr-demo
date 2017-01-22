@@ -1,0 +1,8 @@
+@keyframes move {
+    from {
+        background-position: 0px;
+    }
+    to {
+        background-position: 56px;
+    }
+}

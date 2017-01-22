@@ -11,7 +11,7 @@ https://r-tamura.github.io/ocr-demo/
 - css: postcss
 - linter: eslint, flow
 
-## usage
+## Usage
 
 *TBD*
 
