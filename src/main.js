@@ -1,5 +1,4 @@
 /* @flow */
-import Tesseract from 'tesseract.js'
 import Rx from 'rx-lite'
 import { scanEntry } from './fileutils'
 import { recognize } from './ocr'
@@ -43,7 +42,6 @@ dropClick
     }
   })
 
-
 const resultList = document.getElementById('result-list').querySelector('.list')
 const hiddenFile = document.getElementById('hidden-file')
 const fileChange = Rx.Observable.fromEvent(hiddenFile, 'change')
@@ -73,7 +71,7 @@ drop.merge(fileChange).subscribe(async e => {
   $link.addEventListener('click', (ev) => {
     Rx.Observable.from(words)
       .flatMap(x => Rx.Observable.from(x))
-      .scan((acc, v) => (acc === '' ? $v : `${acc}\r\n${v}`), '')
+      .scan((acc, v) => (acc === '' ? v : `${acc}\r\n${v}`), '')
       .takeLast(1)
       .subscribe(txt => {
         const data = new Blob([txt], { type: 'text/plain' })
