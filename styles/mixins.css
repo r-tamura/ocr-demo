@@ -6,6 +6,11 @@
     align-items: center;
   };
 
+  /* 中央寄せ */
+  --center: {
+    margin: 0 auto;
+  };
+
   /* 左右のパディング */
   --padding-horizon: {
     padding-left: var(--padding-horizon-medium);

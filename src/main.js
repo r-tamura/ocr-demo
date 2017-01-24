@@ -42,8 +42,8 @@ dropClick
     }
   })
 
-const resultList = document.getElementById('result-list').querySelector('.list')
-const hiddenFile = document.getElementById('hidden-file')
+const resultList: HTMLElement = document.getElementById('result-list')
+const hiddenFile: HTMLElement = document.getElementById('hidden-file')
 const fileChange = Rx.Observable.fromEvent(hiddenFile, 'change')
 drop.merge(fileChange).subscribe(async e => {
   blockEventPropagation(e)
@@ -58,17 +58,18 @@ drop.merge(fileChange).subscribe(async e => {
     allFiles = Array.from(e.target.files)
   }
 
-  const $processing = document.createElement('li')
+  const $processing: HTMLElement = document.createElement('li')
   $processing.innerHTML = '<div class="load-indicator"><div class="load-indicator__slide"></div>'
   resultList.appendChild($processing)
 
   // 画像認識
-  const words = await recognize(allFiles, 'eng')
+  const words = recognize(allFiles, 'eng')
+    .flatMap(p => Rx.Observable.fromPromise(p))
 
   const $link = document.createElement('a')
   $link.classList.add('button')
   $link.innerHTML = 'download'
-  $link.addEventListener('click', (ev) => {
+  $link.addEventListener('click', (ev: Event) => {
     Rx.Observable.from(words)
       .flatMap(x => Rx.Observable.from(x))
       .scan((acc, v) => (acc === '' ? v : `${acc}\r\n${v}`), '')

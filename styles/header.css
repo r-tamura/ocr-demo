@@ -1,0 +1,21 @@
+.topbar {
+  background: var(--color-header-bg);
+  height: 50px;
+  box-shadow: var(--shadow);
+  width: 100%;
+  z-index: 100;
+}
+
+.topbar__wrapper {
+  @apply --center;
+  width: var(--root-width);
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.title {
+  font-size: 1.80rem;
+  font-weight: 600;
+  margin-left: 15px;
+}

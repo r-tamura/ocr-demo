@@ -4,7 +4,7 @@
   --font-small:       0.75rem;
   --font-medium:      1.00rem;
   --font-large:       1.35rem;
-  --font-very-large:  2.00rem;
+  --font-very-large:  1.75rem;
 
   /* Main colors */
   --color-dropzone-border: gray;
@@ -13,6 +13,9 @@
   --color-panel-bg: #FEFEFE;
   --color-panel-inverse: #FEFEFE;
   --color-panel-bg-inverse: #153F3F;
+  --color-header-bg: #FAFAFA;
+
+  --root-width: 960px;
 
   --margin-small: 5px;
   --margin-medium: 10px;

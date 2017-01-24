@@ -2,6 +2,7 @@
 
 /* Global variables */
 @import 'variables';
+@import 'normalize';
 @import 'mixins';
 @import 'animations';
 
@@ -9,25 +10,25 @@
 @import 'panel';
 @import 'button';
 
-*, *:before, *:after {
-  box-sizing: border-box;
-}
+/* Container Styles */
+@import 'header';
+
 
 .container {
   position: relative;
 }
 
 .main {
-  max-width: 768px;
+  @apply --center;
+  max-width: var(--root-width);
   padding: 20px 10px;
-  margin: 0 auto;
 }
 
 #dropzone {
+  @apply --center;
   position: relative;
   height: 300px;
   border: 3px dotted var(--color-dropzone-border);
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,15 +76,13 @@
   bottom: 0;
   background-image: repeating-linear-gradient( 45deg, #ccc, #ccc 10px, #eee 10px, #eee 20px );
   height: 100%;
-  width: calc(100% + 56px);
+  width: calc(100% + 16px);
   animation-name: move;
   animation-duration: 0.9s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   padding: 0 20px;
 }
-
-
 
 .load-indicator__slide:before {
   content: 'Processing...';
