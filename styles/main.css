@@ -76,7 +76,7 @@
   bottom: 0;
   background-image: repeating-linear-gradient( 45deg, #ccc, #ccc 10px, #eee 10px, #eee 20px );
   height: 100%;
-  width: calc(100% + 16px);
+  width: calc(100% + 56px);
   animation-name: move;
   animation-duration: 0.9s;
   animation-iteration-count: infinite;
@@ -84,8 +84,7 @@
   padding: 0 20px;
 }
 
-.load-indicator__slide:before {
-  content: 'Processing...';
+.load-indicator__text {
   line-height: 1.5rem;
   color: black;
   font-weight: 600;

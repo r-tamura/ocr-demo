@@ -2,6 +2,7 @@
 import Rx from 'rx-lite'
 import { scanEntry } from './fileutils'
 import { recognize } from './ocr'
+import { createProgressBar } from './view'
 
 function blockEventPropagation(event) {
   event.stopPropagation()
@@ -42,6 +43,11 @@ dropClick
     }
   })
 
+const updateProgressBar = ($bar, cur, max) => {
+  const $text = $bar.querySelector('.load-indicator__text')
+  $text.innerHTML = `Processing ... (${cur} / ${max})`
+}
+
 const resultList: HTMLElement = document.getElementById('result-list')
 const hiddenFile: HTMLElement = document.getElementById('hidden-file')
 const fileChange = Rx.Observable.fromEvent(hiddenFile, 'change')
@@ -58,17 +64,35 @@ drop.merge(fileChange).subscribe(async e => {
     allFiles = Array.from(e.target.files)
   }
 
-  const $processing: HTMLElement = document.createElement('li')
-  $processing.innerHTML = '<div class="load-indicator"><div class="load-indicator__slide"></div>'
-  resultList.appendChild($processing)
+  const processCount = allFiles.length
 
   // 画像認識
-  const words = recognize(allFiles, 'eng')
+  const process = recognize(allFiles, 'eng')
     .flatMap(p => Rx.Observable.fromPromise(p))
+
+  const $processing: HTMLElement = document.createElement('li')
+  $processing.innerHTML = `
+    <div class="load-indicator">
+      <div class="load-indicator__slide">
+        <span class="load-indicator__text">
+          Processing... (0 / ${processCount})
+        </span>
+      </div>
+    </div>
+  `
+  resultList.appendChild($processing)
+
+  process
+    .map(1)
+    .scan((acc, v) => acc + v, 0)
+    .subscribe(v => updateProgressBar($processing, v, processCount))
+
+  const words = await process.toArray().toPromise()
 
   const $link = document.createElement('a')
   $link.classList.add('button')
-  $link.innerHTML = 'download'
+  const filename = `ocr-${new Date().getTime()}.txt`
+  $link.innerHTML = `download (${filename})`
   $link.addEventListener('click', (ev: Event) => {
     Rx.Observable.from(words)
       .flatMap(x => Rx.Observable.from(x))
@@ -78,11 +102,12 @@ drop.merge(fileChange).subscribe(async e => {
         const data = new Blob([txt], { type: 'text/plain' })
         const url = URL.createObjectURL(data)
         $link.href = url
-        $link.download = `ocr-${new Date().getTime()}.txt`
+        $link.download = filename
       })
   })
   const $li = document.createElement('li')
   $li.appendChild($link)
   resultList.removeChild($processing)
   resultList.appendChild($li)
+
 })
